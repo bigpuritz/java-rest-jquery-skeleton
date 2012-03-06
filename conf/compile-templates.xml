@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<project name="merge-template" basedir="." default="compile">
+
+    <property name="template.js" location="${basedir}/src/gen/resources/js/Templates.js"/>
+    <property name="templates.dir" location="${basedir}/src/main/resources/templates"/>
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
+    <target name="compile">
+        <delete file="${template.js}"/>
+        <echo file="${template.js}">Templates={};${line.separator}</echo>
+        <foreach target="compile-template" param="template">
+            <fileset dir="${templates.dir}" includes="*.html"/>
+        </foreach>
+    </target>
+
+    <target name="compile-template">
+        <path id="template.path">
+            <pathelement location="${template}"/>
+        </path>
+        <pathconvert pathsep="${line.separator}" property="name" refid="template.path">
+            <chainedmapper>
+                <mapper type="flatten"/>
+                <filtermapper>
+                    <replacestring from=".html" to=""/>
+                </filtermapper>
+            </chainedmapper>
+        </pathconvert>
+        <concat destfile="${template.js}" append="true" fixlastline="true">
+            <path location="${template}"/>
+            <filterchain>
+                <replacestring from="'" to="\'"/>
+                <trim/>
+                <ignoreblank/>
+                <striplinebreaks/>
+                <prefixlines prefix="Templates.${name}=Handlebars.compile('"/>
+                <suffixlines suffix="');${line.separator}"/>
+            </filterchain>
+        </concat>
+    </target>
+
+</project>
