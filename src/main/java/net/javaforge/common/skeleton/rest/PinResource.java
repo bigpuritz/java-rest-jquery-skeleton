@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Maxim Kalina (Maxim.Kalina@extern.isban.de)
- * @version $Id$
+ * Returns dummy list of pins.
+ *
+ * @author Maxim Kalina
  */
 @Path("/pin")
 public class PinResource {

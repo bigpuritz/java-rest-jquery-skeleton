@@ -12,8 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @author Maxim Kalina (Maxim.Kalina@extern.isban.de)
- * @version $Id$
+ * Returns dummy list of comments.
+ *
+ * @author Maxim Kalina
  */
 @Path("/comment")
 public class CommentResource {
