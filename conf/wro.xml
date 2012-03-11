@@ -5,10 +5,11 @@
 
     <group name="bundle">
         <css>file:src/main/resources/css/bootstrap.min.css</css>
-        <css>file:src/main/resources/css/app.css</css>
-        <js>file:src/main/resources/js/deps/jquery-1.7.1.min.js</js>
+        <css>file:src/main/resources/less/app.less</css>
+        <js minimize="false">file:src/main/resources/js/deps/jquery-1.7.1.min.js</js>
         <js>file:src/main/resources/js/deps/handlebars-1.0.0.beta.6.js</js>
-        <js>file:src/main/resources/js/deps/bootstrap.min.js</js>
+        <js minimize="false">file:src/main/resources/js/deps/bootstrap.min.js</js>
+
         <js>file:src/gen/resources/js/Templates.js</js>
         <js>file:src/main/resources/js/app/App.js</js>
     </group>
