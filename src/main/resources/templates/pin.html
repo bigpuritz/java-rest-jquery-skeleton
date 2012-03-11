@@ -1,14 +1,17 @@
 <div class="well">
-<a class="close">&times;</a>
-<h3>{{title}}</h3>
-<p>{{description}}</p>
-<br/>
-{{#each tags}}
-<span class="label"><i class="icon-tag icon-white"></i>&nbsp;{{this}}</span>&nbsp;&nbsp;
-{{/each}}
-<br/><br/>
-<div class="comments">
-    <a href="#" class="btn">load comments</a>
-    <br><br>
-</div>
+    <a class="close">&times;</a>
+
+    <h3>{{title}}</h3>
+
+    <p>{{description}}</p>
+    <br/>
+    {{#each tags}}
+    <span class="label"><i class="icon-tag icon-white"></i>&nbsp;{{this}}</span>&nbsp;&nbsp;
+    {{/each}}
+    <br/><br/>
+
+    <div class="comments">
+        <button class="btn" autocomplete="off" data-loading-text="loading comments...">load comments</button>
+        <br><br>
+    </div>
 </div>
